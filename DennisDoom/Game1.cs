@@ -14,7 +14,6 @@ namespace DennisDoom
         Random random = new Random();
 
         Texture2D boom;
-        List<Explosion> explosions;
 
         public Game1()
         {
@@ -33,9 +32,6 @@ namespace DennisDoom
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             boom = Content.Load<Texture2D>("boom");
-
-            explosions = new List<Explosion>();
-            explosions.Add(new Explosion(boom, new Vector2(random.Next(0, GraphicsDevice.Viewport.Width), random.Next(0, GraphicsDevice.Viewport.Height))));
         }
 
 
@@ -44,18 +40,6 @@ namespace DennisDoom
         }
         protected override void Update(GameTime gameTime)
         {
-
-            explosions.Add(new Explosion(boom, new Vector2(random.Next(0, GraphicsDevice.Viewport.Width), random.Next(0, GraphicsDevice.Viewport.Height))));
-
-            for (int i = 0; i < explosions.Count; i++)
-            {
-                explosions[i].Update(gameTime);
-
-                if (explosions[i].CurrentAnimation.AnimationComplete)
-                {
-                    explosions.RemoveAt(i);
-                }
-            }
 
             base.Update(gameTime);
         }
@@ -67,10 +51,6 @@ namespace DennisDoom
             spriteBatch.Begin();
 
 
-            foreach (Explosion e in explosions)
-            {
-                e.Draw(spriteBatch);
-            }
 
             spriteBatch.End();
 
