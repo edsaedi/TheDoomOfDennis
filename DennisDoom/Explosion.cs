@@ -13,25 +13,21 @@ namespace DennisDoom
     {
         public Explosion(Texture2D image, Vector2 position) : base(position)
         {
-            List<Frame> frames = new List<Frame>();
+            AnimationState = AnimationState.Explode;
+            AddAnimation(AnimationState, new Animation(image, null, TimeSpan.Zero, 1));
 
             int size = 9;
-
             int dy = 0;
             for (int y = 0; y < size; y++)
             {
                 int dx = 0;
                 for (int x = 0; x < size; x++)
                 {
-                    frames.Add(new Frame(new Rectangle(dx, dy, image.Width / size, image.Height / size)));
+                    Animations[AnimationState].AddFrame(new Frame(new Rectangle(dx, dy, image.Width / size, image.Height / size)));
                     dx += image.Width / size;
                 }
                 dy += image.Height / size;
             }
-
-
-            Animations.Add(AnimationState.Explode, new Animation(image, frames, TimeSpan.Zero, 1));
-            AnimationState = AnimationState.Explode;
         }
 
     }

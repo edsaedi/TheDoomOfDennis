@@ -8,25 +8,35 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace DennisDoom
 {
-    public class Player : Sprite
+    public class Player : AnimatedSprite
     {
+        //List<AnimatedSprite
         //Speed
         //List<Projectile>
         //Health
         bool IsAlive = true;
+        public Vector2 Speed { get; set; }
 
-        public Player(Texture2D image, Vector2 position)
-            : base(image, position)
+        public Player(Vector2 position, Vector2 speed) : base(position)
         {
-        }
-
-        public Player(Texture2D image, Vector2 position, Color tint, float rotation, Vector2 scale, Vector2 origin, SpriteEffects effect, float layerDepth)
-            : base(image, position, tint, rotation, scale, origin, effect, layerDepth)
-        {
+            //create all animations
         }
 
         //Update
         //move player with input
+        public override void Update(GameTime gameTime)
+        {
+            //movement stuff
 
+            base.Update(gameTime); //animates the frames
+        }
+
+
+        public override void Draw(SpriteBatch batch)
+        {
+            base.Draw(batch); //draw the player
+
+            //draw projectiles
+        }
     }
 }

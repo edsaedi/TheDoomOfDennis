@@ -32,6 +32,11 @@ namespace DennisDoom
             LoopCap = (uint)loopCap;
         }
 
+        public void AddFrame(Frame frame)
+        {
+            Frames.Add(frame);
+        }
+
         public void Animate(GameTime gameTime)
         {
             if (!AnimationComplete)
