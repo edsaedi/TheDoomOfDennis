@@ -21,7 +21,8 @@ namespace DennisDoom
             set { Velocity = new Vector2(Velocity.X, value); }
         }
 
-        public MovingAnimatedSprite(Vector2 position, Vector2 velocity) : base(position)
+        public MovingAnimatedSprite(Vector2 position, Vector2 velocity)
+            : base(position)
         {
             this.Velocity = velocity;
         }
