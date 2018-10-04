@@ -13,6 +13,7 @@ namespace DennisDoom
         SpriteBatch spriteBatch;
         Random random = new Random();
 
+        //test comment
         Texture2D boom;
 
         public Game1()
